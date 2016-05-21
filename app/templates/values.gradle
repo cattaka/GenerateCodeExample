@@ -1,0 +1,14 @@
+return [
+        metaDataEntries: [
+                hoge_key1: "hoge_value1",
+                hoge_key2: "hoge_value2",
+                hoge_key3: "hoge_value3",
+                hoge_key4: "hoge_value4",
+        ],
+        intentFilters  : [
+                [name: "HOGE", scheme: "https", host: "www.cattaka.net", pathPattern: "/hoge/([^/]+)", idIndex: 1],
+                [name: "FUGA_FOO", scheme: "https", host: "www.cattaka.net", pathPattern: "/fuga/([^/]+)/foo/([^/]+)", idIndex: 2],
+                [name: "BAR", scheme: "https", host: "www.cattaka.net", pathPattern: "/bar/([^/]+)", idIndex: 1],
+                [name: "SPAM_HAM", scheme: "https", host: "www.cattaka.net", pathPattern: "/spam/([^/]+)/ham/([^/]+)", idIndex: 2],
+        ]
+]

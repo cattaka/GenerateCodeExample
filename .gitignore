@@ -31,3 +31,7 @@ Thumbs.db
 .gradle
 build/
 
+
+# Generated codes
+app/src/main/AndroidManifest.xml
+app/src/main/java/net/cattaka/generatecodeexample/

@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'org.mvel:mvel2:2.2.8.Final'
+    }
+}
+
+import org.mvel2.templates.TemplateRuntime
+
+def placeHolderValues = evaluate(new File(projectDir.absolutePath, "templates/values.gradle"))
+
+def manifestTemplate = new File(projectDir.absolutePath, 'templates/AndroidManifest.mvel.xml').text;
+def manifestFile = new File(projectDir.absolutePath, 'src/main/AndroidManifest.xml');
+manifestFile.text = String.valueOf(TemplateRuntime.eval(manifestTemplate, placeHolderValues));
+
+def helperTemplate = new File(projectDir.absolutePath, 'templates/IntentFilterHelper.mvel.java').text;
+def helperFile = new File(projectDir.absolutePath, 'src/main/java/net/cattaka/generatecodeexample/generated/IntentFilterHelper.java');
+helperFile.text = String.valueOf(TemplateRuntime.eval(helperTemplate, placeHolderValues));
